@@ -75,7 +75,7 @@ packages:
     source: sdk
     version: "0.0.0"
   http:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -138,12 +138,12 @@ packages:
     source: hosted
     version: "2.0.5"
   share:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: share
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.3+6"
+    version: "0.5.3"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -192,12 +192,12 @@ packages:
     source: hosted
     version: "0.2.11"
   transparent_image:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: transparent_image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "0.1.0"
   typed_data:
     dependency: transitive
     description:
@@ -221,4 +221,4 @@ packages:
     version: "3.5.0"
 sdks:
   dart: ">=2.4.0 <3.0.0"
-  flutter: ">=1.10.0 <2.0.0"
+  flutter: ">=0.1.4 <2.0.0"
