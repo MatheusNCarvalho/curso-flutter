@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "843105465892-pg2kj5tpqp1c29kvtoumce5q4vn9q4mf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.neves.chat",
+            "certificate_hash": "86d6e025b6f331f7b5df670fde626b74a8f2fa8b"
+          }
+        },
+        {
           "client_id": "843105465892-jkdulrf15vnt3alk8dn73qh6f7ekvjkq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

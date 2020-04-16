@@ -39,7 +39,26 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Get picuture to send message</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Get </string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Get fone</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CFBundleURLTypes</key>
+    <array>
+    	<dict>
+    		<key>CFBundleTypeRole</key>
+    		<string>Editor</string>
+    		<key>CFBundleURLSchemes</key>
+    		<array>
+
+    			<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+    			<string>com.googleusercontent.apps.843105465892-enb8q23li70s3pbdtq4kks4sq11sfdr5</string>
+    		</array>
+    	</dict>
+    </array>
 </dict>
 </plist>
