@@ -1,5 +1,8 @@
+import 'package:contato/ui/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Container());
+  runApp(MaterialApp(
+    home: HomePage(),
+  ));
 }
