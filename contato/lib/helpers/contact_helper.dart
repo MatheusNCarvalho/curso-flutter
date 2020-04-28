@@ -89,13 +89,15 @@ class ContactHelper {
     );
   }
 
-  Future delete(int id) async {
+  Future<bool> delete(int id) async {
     Database dbContext = await db;
     var result = await dbContext.delete(
       contactTable,
       where: "$idColumn = ?",
       whereArgs: [id],
     );
+
+    return result ==1;
   }
 
   Future close() async {
@@ -113,6 +115,7 @@ class Contact {
 
   Contact.fromMap(Map map) {
     id = map[idColumn];
+    name = map[nameColumn];
     email = map[emailColumn];
     phone = map[phoneColumn];
     image = map[imageColumn];
