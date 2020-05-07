@@ -1,6 +1,3 @@
-
-
-
 const String DATABASE_NAME = "todo.db";
 const String TABLE_NAME = "tasks";
 const String ID_COLUMN = "id";

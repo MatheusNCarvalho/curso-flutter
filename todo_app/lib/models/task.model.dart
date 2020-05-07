@@ -27,7 +27,14 @@ class TaskModel {
     if (id != null) {
       map[ID_COLUMN] = id;
     }
-
     return map;
+  }
+
+  TaskModel.fromMap(Map map) {
+    id = map[ID_COLUMN];
+    name = map[NAME_COLUMN];
+    description = map[DESCRIPTION_COLUMN];
+    imageUrl = map[IMAGE_COLUMN];
+    status = map[STATUS_COLUMN];
   }
 }
