@@ -17,16 +17,19 @@ class TaskModel {
   });
 
   Map<String, dynamic> toMap() {
+    print(status);
     Map<String, dynamic> map = {
       NAME_COLUMN: name,
       DESCRIPTION_COLUMN: description,
       IMAGE_COLUMN: imageUrl,
-      STATUS_COLUMN: status,
+      //STATUS_COLUMN: status.index,
     };
 
     if (id != null) {
+
       map[ID_COLUMN] = id;
     }
+
     return map;
   }
 
@@ -35,6 +38,5 @@ class TaskModel {
     name = map[NAME_COLUMN];
     description = map[DESCRIPTION_COLUMN];
     imageUrl = map[IMAGE_COLUMN];
-    status = map[STATUS_COLUMN];
   }
 }
