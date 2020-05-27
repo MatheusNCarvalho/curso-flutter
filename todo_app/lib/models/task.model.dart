@@ -22,9 +22,9 @@ class TaskModel {
       NAME_COLUMN: name,
       DESCRIPTION_COLUMN: description,
       IMAGE_COLUMN: imageUrl,
-      //STATUS_COLUMN: status.index,
+      STATUS_COLUMN: status != null ? status.index : StatusType.Open.index,
     };
-
+    print(map);
     if (id != null) {
 
       map[ID_COLUMN] = id;
@@ -38,5 +38,6 @@ class TaskModel {
     name = map[NAME_COLUMN];
     description = map[DESCRIPTION_COLUMN];
     imageUrl = map[IMAGE_COLUMN];
+    status = map[STATUS_COLUMN] != null ? StatusType.values[int.parse(map[STATUS_COLUMN])] : StatusType.Open;
   }
 }

@@ -19,9 +19,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    TaskModel model = TaskModel(description: "Teste", name: "Dormir");
-    _taskRepository.create(model);
-    _taskRepository.create(TaskModel(description: "Teste", name: "Dormir 2"));
     _getAll();
   }
 
@@ -33,6 +30,24 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.blue,
         centerTitle: true,
       ),
+      body: ListView.builder(
+          itemCount: _taks.length,
+          itemBuilder: (context, index) {
+            return Container(
+              child: Card(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      _taks[index].name,
+                      style:
+                      TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+              )
+            );
+          }),
     );
   }
 
@@ -40,7 +55,6 @@ class _HomePageState extends State<HomePage> {
     _taskRepository.get().then((response) {
       setState(() {
         _taks = response;
-        print(_taks.length);
       });
     });
   }

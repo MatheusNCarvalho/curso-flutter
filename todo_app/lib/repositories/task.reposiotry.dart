@@ -2,6 +2,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:todoapp/models/task.model.dart';
 import 'package:todoapp/parameters/database-keys.parameters.dart';
 import 'package:todoapp/repositories/database-provider.repository.dart';
+import 'package:todoapp/shared/enums/status-type.enum.dart';
 
 class TaskRepository {
    DatabaseProvider _databaseProvider;
@@ -71,12 +72,13 @@ class TaskRepository {
   }
 
   TaskModel _mountedTask(List<Map<String, dynamic>> maps, int index) {
+    var status = maps[index][STATUS_COLUMN];
     return TaskModel(
       id: maps[index][ID_COLUMN],
       name: maps[index][NAME_COLUMN],
       description: maps[index][DESCRIPTION_COLUMN],
       imageUrl: maps[index][IMAGE_COLUMN],
-      status: maps[index][STATUS_COLUMN],
+      status: status != null ? StatusType.values[int.parse(status)]  : StatusType.Open,
     );
   }
 }
