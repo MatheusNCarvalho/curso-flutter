@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "732796251688",
+    "firebase_url": "https://lojaflutter-e332f.firebaseio.com",
+    "project_id": "lojaflutter-e332f",
+    "storage_bucket": "lojaflutter-e332f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732796251688:android:df2e941511acd538800f1d",
+        "android_client_info": {
+          "package_name": "com.neves.lojavirtual"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732796251688-8etmeqpd2pe2im97jkigkhf4irl64emp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmrA8GvyY2QizNRTpTPJt2YVfFWn7mjAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732796251688-8etmeqpd2pe2im97jkigkhf4irl64emp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
