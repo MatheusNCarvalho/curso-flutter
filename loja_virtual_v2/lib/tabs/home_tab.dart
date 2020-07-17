@@ -18,9 +18,6 @@ class HomeTab extends StatelessWidget {
                 centerTitle: true,
               ),
             ),
-            FutureBuilder<QuerySnapshot>(
-              future: null,
-            )
           ],
         )
       ],
