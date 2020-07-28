@@ -1,11 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:loja_virtual_v2/tabs/home_tab.dart';
+import 'package:loja_virtual_v2/tabs/products_tab.dart';
 import 'package:loja_virtual_v2/widgets/custom_drawer.dart';
 
 class HomePage extends StatelessWidget {
   final _pageController = PageController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +15,16 @@ class HomePage extends StatelessWidget {
         Scaffold(
           body: HomeTab(),
           drawer: CustomDrawer(_pageController),
+        ),
+        Scaffold(
+          appBar: AppBar(
+            title: Text("Produtos"),
+            centerTitle: true,
+          ),
+          drawer: CustomDrawer(_pageController),
+          body: ProductsTab(),
         )
       ],
     );
   }
 }
-
