@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:navigacao/screens/categories_meals_screen.dart';
 import 'package:navigacao/screens/categories_screen.dart';
 import 'package:navigacao/screens/meal_detail_screen.dart';
+import 'package:navigacao/screens/settings_screen.dart';
+import 'package:navigacao/screens/tabs_screen.dart';
 import 'package:navigacao/utils/app_routes.dart';
 
 void main() {
@@ -28,9 +30,10 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: {
-        AppRoutes.HOME: (_) => CategioriesScreen(),
+        AppRoutes.HOME: (_) => TabsScreen(),
         AppRoutes.CATEGORIES_MEALS: (_) => CategoriesMealsScreen(),
         AppRoutes.MEALS_DETAIL: (_) => MealDetailScreen(),
+        AppRoutes.SETTINGS: (_) => SettingsScreen(),
       },
     );
   }
