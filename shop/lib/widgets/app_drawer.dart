@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/utils/app_routes.dart';
+import 'package:shop/widgets/app_drawer_item.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -11,25 +12,22 @@ class AppDrawer extends StatelessWidget {
             title: Text('Bem vindo Usuário'),
             automaticallyImplyLeading: false,
           ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.shop),
-            title: Text('Loja'),
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed(
-                AppRoutes.HOME,
-              );
-            },
+          AppDrawerItem(
+            icon: Icons.shop,
+            title: 'Loja',
+            routeName: AppRoutes.HOME,
           ),
           Divider(),
-          ListTile(
-            leading: Icon(Icons.payment),
-            title: Text('Pedidos'),
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed(
-                AppRoutes.ORDERS,
-              );
-            },
+          AppDrawerItem(
+            icon: Icons.payment,
+            title: 'Pedidos',
+            routeName: AppRoutes.ORDERS,
+          ),
+          Divider(),
+          AppDrawerItem(
+            icon: Icons.edit,
+            title: 'Gerenciar Produtos',
+            routeName: AppRoutes.PRODUCTS,
           ),
         ],
       ),

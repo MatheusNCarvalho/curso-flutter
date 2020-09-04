@@ -24,14 +24,14 @@ class CartScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'Total',
                     style: TextStyle(fontSize: 20),
                   ),
                   SizedBox(width: 10),
                   Chip(
                     label: Text(
-                      'R\$${cartProvider.totalAmount}',
+                      'R\$${cartProvider.totalAmount.toStringAsFixed(2)}',
                       style: TextStyle(
                         color:
                             Theme.of(context).primaryTextTheme.headline6.color,
@@ -46,7 +46,7 @@ class CartScreen extends StatelessWidget {
                           .addOrder(cartProvider);
                       cartProvider.clear();
                     },
-                    child: Text("COMPRAR"),
+                    child: const Text("COMPRAR"),
                     textColor: Theme.of(context).primaryColor,
                   ),
                 ],
