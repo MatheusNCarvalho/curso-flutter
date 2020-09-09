@@ -52,7 +52,8 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
       imageUrl: _formData['imageUrl'],
     );
 
-    Provider.of<ProductsProvider>(context).addProduct(newProduct);
+    Provider.of<ProductsProvider>(context, listen: false)
+        .addProduct(newProduct);
     Navigator.of(context).pop();
   }
 
