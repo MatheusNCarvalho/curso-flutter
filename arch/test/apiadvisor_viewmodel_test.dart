@@ -31,6 +31,8 @@ main() {
       test(
         'ApiAdvisorViewModel success',
         () async {
+          when(mock.get(""))
+              .thenReturn(Future.value(ApiAdvisorModel().toJson()));
           await viewModel.fill();
           expect(viewModel.apiAdvisorModel.value, isA<ApiAdvisorModel>());
         },
