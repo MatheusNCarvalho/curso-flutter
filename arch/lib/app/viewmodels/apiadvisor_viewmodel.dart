@@ -9,6 +9,10 @@ class ApiadvisorViewModel {
   ApiadvisorViewModel(this.apiAdvisor);
 
   fill() async {
-    apiAdvisorModel.value = await apiAdvisor.getTime();
+    try {
+      apiAdvisorModel.value = await apiAdvisor.getTime();
+    } catch (ex) {
+      print(ex);
+    }
   }
 }
