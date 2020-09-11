@@ -17,6 +17,25 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
   final _formData = Map<String, Object>();
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_formData.isEmpty) {
+      final product = ModalRoute.of(context).settings.arguments as Product;
+      if (product != null) {
+        _formData['id'] = product.id;
+        _formData['title'] = product.title;
+        _formData['description'] = product.description;
+        _formData['price'] = product.price;
+        _formData['imageUrl'] = product.imageUrl;
+
+        _imageUrlController.text = _formData['imageUrl'];
+      } else {
+        _formData['price'] = '';
+      }
+    }
+  }
+
+  @override
   void initState() {
     super.initState();
 
@@ -46,14 +65,17 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
 
     _form.currentState.save();
     final newProduct = new Product(
+      id: _formData['id'],
       title: _formData['title'],
       description: _formData['description'],
       price: _formData['price'],
       imageUrl: _formData['imageUrl'],
     );
 
-    Provider.of<ProductsProvider>(context, listen: false)
-        .addProduct(newProduct);
+    final productProvider =
+        Provider.of<ProductsProvider>(context, listen: false);
+
+    productProvider.addOrUpdateProduct(newProduct);
     Navigator.of(context).pop();
   }
 
@@ -61,9 +83,6 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
   void dispose() {
     super.dispose();
 
-    _priceFocusNode.dispose();
-    _descriptionFocusNode.dispose();
-    _imageUrlFocusNode.dispose();
     _imageUrlFocusNode.removeListener(_updateImageUrl);
   }
 
@@ -86,6 +105,7 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
           child: ListView(
             children: <Widget>[
               TextFormField(
+                initialValue: _formData['title'],
                 textInputAction: TextInputAction.next,
                 decoration: InputDecoration(
                   labelText: 'Título',
@@ -104,6 +124,7 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
               ),
               SizedBox(height: 16),
               TextFormField(
+                initialValue: _formData['price'].toString(),
                 focusNode: _priceFocusNode,
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
@@ -131,6 +152,7 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
               ),
               SizedBox(height: 16),
               TextFormField(
+                initialValue: _formData['description'],
                 focusNode: _descriptionFocusNode,
                 keyboardType: TextInputType.multiline,
                 maxLines: 3,
