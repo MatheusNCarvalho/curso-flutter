@@ -18,25 +18,28 @@ main() {
   group(
     'ApiAdvisorViewModel',
     () {
-      test(
-        'ApiAdvisorViewModel error',
-        () async {
-          when(mock.get("")).thenThrow(Exception("error"));
+      test('ApiAdvisorViewModel error', () async {
+        when(mock.get("")).thenThrow(
+          Exception("error"),
+        );
 
-          await viewModel.fill();
-          expect(viewModel.apiAdvisorModel.value, null);
-        },
-      );
+        await viewModel.fill();
+        expect(viewModel.apiAdvisorModel.value, null);
+      });
 
-      test(
-        'ApiAdvisorViewModel success',
-        () async {
-          when(mock.get(""))
-              .thenReturn(Future.value(ApiAdvisorModel().toJson()));
-          await viewModel.fill();
-          expect(viewModel.apiAdvisorModel.value, isA<ApiAdvisorModel>());
-        },
-      );
+      test('ApiAdvisorViewModel success', () async {
+        when(mock.get("url")).thenAnswer(
+          (_) => Future.value([
+            ApiAdvisorModel(
+              country: "BR",
+              date: "11/09/2020",
+              text: "asdadasdas",
+            ).toJson()
+          ]),
+        );
+        await viewModel.fill();
+        expect(viewModel.apiAdvisorModel.value, isA<ApiAdvisorModel>());
+      });
     },
   );
 }
