@@ -17,6 +17,17 @@ class CartItem {
     @required this.quantity,
     @required this.price,
   });
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['productId'] = this.productId;
+    data['title'] = this.title;
+    data['quantity'] = this.quantity;
+    data['price'] = this.price;
+    
+    return data;
+  }
 }
 
 class CartProvider with ChangeNotifier {
