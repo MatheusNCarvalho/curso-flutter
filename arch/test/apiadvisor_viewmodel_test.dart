@@ -1,19 +1,25 @@
+import 'package:arch/app/app_module.dart';
 import 'package:arch/app/interfaces/client_http_interface.dart';
 import 'package:arch/app/models/apiadvisor_model.dart';
-import 'package:arch/app/repositories/apiadvisor_repository.dart';
 import 'package:arch/app/viewmodels/apiadvisor_viewmodel.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_modular/flutter_modular_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
 class ClientHttpMockito extends Mock implements IClientHttp {}
 
 main() {
-  final mock = ClientHttpMockito();
-  final viewModel = ApiadvisorViewModel(
-    ApiadvisorRepository(
-      mock,
-    ),
-  );
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  initModule(AppModule(), changeBinds: [
+    Bind<IClientHttp>((i) => ClientHttpMockito()),
+  ]);
+
+  final mock = Modular.get<IClientHttp>();
+  final viewModel = Modular.get<ApiadvisorViewModel>();
 
   group(
     'ApiAdvisorViewModel',
