@@ -1,7 +1,7 @@
 import 'package:arch/app/app_module.dart';
 import 'package:arch/app/interfaces/client_http_interface.dart';
-import 'package:arch/app/models/apiadvisor_model.dart';
-import 'package:arch/app/viewmodels/apiadvisor_viewmodel.dart';
+import 'package:arch/app/modules/home/models/apiadvisor_model.dart';
+import 'package:arch/app/modules/home/viewmodels/apiadvisor_viewmodel.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular/flutter_modular_test.dart';
