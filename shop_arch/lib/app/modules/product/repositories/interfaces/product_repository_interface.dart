@@ -2,11 +2,11 @@ import 'package:shop_arch/app/modules/product/models/product_model.dart';
 
 abstract class IProductRepository {
 
-  Future<List<ProductModel>> get();
+  Future<List<ProductModel>> getAll();
 
-  Future<void> add(Map<String, dynamic> json);
+  Future<void> add(ProductModel model);
 
-  Future<void> update(Map<String, dynamic> json);
-  
+  Future<void> update(ProductModel model);
+
   Future<void> delete(String id);
 }
